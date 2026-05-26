@@ -107,15 +107,6 @@ src/
 - La progressione è salvata nel browser; per resettarla usa il pulsante “Reset Progressi”.
 - Non è richiesta nessuna chiave Gemini o API esterna.
 
-## Miglioramenti già applicati in questa versione
-
-- Rimosse dipendenze non usate da Gemini/Express per rendere il POC più leggero.
-- Aggiornato README per uso locale da VS Code.
-- Migliorato Practice Lab con UI più coerente arancione/bianco e focus visuale su segmentazione e KPI.
-- Aggiunta navigazione mobile bottom-bar per rendere la web app più responsive.
-- Sistemata configurazione Vite per localhost su porta 3000.
-- Aggiornati metadata e `.env.example` per chiarire che non servono variabili obbligatorie.
-
 ## Prossimi step consigliati
 
 1. Aggiungere più business case con difficoltà progressiva.
