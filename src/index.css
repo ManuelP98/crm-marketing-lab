@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Manrope", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-primary: #f97316;
+  --color-primary-dark: #9d4300;
+  --color-bg-base: #f8f9ff;
+  --color-bg-soft: #fff7ed;
+  
+  --color-surface-lowest: #ffffff;
+  --color-surface-low: #eff4ff;
+  --color-surface-container: #e6eeff;
+  --color-surface-high: #dee9fc;
+  --color-surface-highest: #d9e3f6;
+  --color-on-surface: #121c2a;
+  --color-border-orange: #fed7aa;
+  
+  --text-primary-dark: #1f2937;
+  
+  --radius-sm: 0.25rem;
+  --radius-DEFAULT: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  --shadow-active-orange: 0 10px 15px -3px rgba(249, 115, 22, 0.1);
+}
+
+/* Custom scrollbar styling for a premium feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(249, 115, 22, 0.15);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(249, 115, 22, 0.3);
+}
+
+/* Base Body Styles matching CRM Marketing Lab */
+body {
+  background-color: #f8f9ff;
+  color: #1f2937;
+  font-family: "Inter", sans-serif;
+}
+
