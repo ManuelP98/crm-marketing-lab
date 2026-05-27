@@ -36,6 +36,11 @@ const getSegmentValues = (exercise: Exercise, field: string, fallbackValue: stri
   return exercise.segmentOptions?.values?.[field] ?? DEFAULT_SEGMENT_OPTIONS[field] ?? [fallbackValue];
 };
 
+const getFallbackJourneyStepPool = (steps: string[] = []) => {
+  if (steps.length <= 1) return steps;
+  return [...steps.slice(1), steps[0]];
+};
+
 export default function LessonPage({ lesson, onBack, onCompleteLesson }: LessonPageProps) {
   const [currentExerciseIndex, setCurrentExerciseIndex] = useState(0);
   const [selectedAnswerId, setSelectedAnswerId] = useState<string | null>(null);
@@ -51,6 +56,7 @@ export default function LessonPage({ lesson, onBack, onCompleteLesson }: LessonP
   const [lessonFinished, setLessonFinished] = useState(false);
 
   const currentExercise: Exercise = lesson.exercises[currentExerciseIndex];
+  const journeyStepPool = currentExercise.journeyStepPool ?? getFallbackJourneyStepPool(currentExercise.journeyCorrectSteps);
 
   useEffect(() => {
     if (!currentExercise) return;
@@ -453,7 +459,7 @@ export default function LessonPage({ lesson, onBack, onCompleteLesson }: LessonP
                 </div>
               )}
 
-              {currentExercise.type === 'journey-builder' && currentExercise.journeyStepPool && (
+              {currentExercise.type === 'journey-builder' && journeyStepPool.length > 0 && (
                 <div className="space-y-4">
                   <div className="border border-slate-200 p-4 rounded-xl bg-[#fff7ed]/35 space-y-2 shadow-sm">
                     <h5 className="text-xs font-bold text-slate-500 font-mono uppercase">Flow canvas</h5>
@@ -479,7 +485,7 @@ export default function LessonPage({ lesson, onBack, onCompleteLesson }: LessonP
                     <div className="space-y-2">
                       <h5 className="text-xs font-bold text-slate-400 font-mono uppercase tracking-wider">Seleziona gli step disponibili:</h5>
                       <div className="flex flex-wrap gap-2">
-                        {currentExercise.journeyStepPool.map((step) => {
+                        {journeyStepPool.map((step) => {
                           const isAdded = journeySteps.includes(step);
                           return (
                             <button

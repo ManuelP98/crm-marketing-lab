@@ -20,7 +20,7 @@ interface LearningPathProps {
 }
 
 export default function LearningPath({ progress, onSelectLesson }: LearningPathProps) {
-  
+const unlockAll = new URLSearchParams(window.location.search).get('demo') === 'unlocked';  
   // Helper to determine module completion percentage
   const getModuleCompletion = (modId: string) => {
     const mod = curriculum.find(m => m.id === modId);
@@ -33,10 +33,11 @@ export default function LearningPath({ progress, onSelectLesson }: LearningPathP
   // "Un modulo si sbloccano progressivamente. Un modulo si sblocca quando l’utente completa almeno il 70% del modulo precedente."
   // Since each previous module has 5 lessons, 70% is 3.5, which practically means completing at least 4 lessons.
   const isModuleUnlocked = (modIndex: number) => {
+    if (unlockAll) return true;
     if (modIndex === 0) return true;
     const previousModule = curriculum[modIndex - 1];
     const previousCompletedCount = previousModule.lessons.filter(les => progress.completedLessons.includes(les.id)).length;
-    return (previousCompletedCount / previousModule.lessons.length) >= 0.7; // Completed >= 70%
+    return (previousCompletedCount / previousModule.lessons.length) >= 0.7;
   };
 
   return (
