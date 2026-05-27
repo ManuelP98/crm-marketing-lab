@@ -41,16 +41,16 @@ const unlockAll = new URLSearchParams(window.location.search).get('demo') === 'u
   };
 
   return (
-    <div className="space-y-8" id="crm-learning-path">
+    <div className="space-y-6 md:space-y-8" id="crm-learning-path">
       {/* Introduction text */}
-      <div className="border-b border-orange-100 pb-6">
-        <h2 className="text-3xl font-extrabold text-[#121c2a] tracking-tight font-display">CRM Learning Path</h2>
+      <div className="border-b border-orange-100 pb-5 md:pb-6">
+        <h2 className="text-2xl md:text-3xl font-extrabold text-[#121c2a] tracking-tight font-display">CRM Learning Path</h2>
         <p className="text-slate-600 text-sm mt-1">
           Completa le lezioni interattive per acquisire XP e sbloccare i moduli successivi. Fai progredire il tuo piano.
         </p>
       </div>
 
-      <div className="space-y-12">
+      <div className="space-y-6 md:space-y-12">
         {curriculum.map((mod, modIdx) => {
           const unlocked = isModuleUnlocked(modIdx);
           const completionPercent = getModuleCompletion(mod.id);
@@ -59,7 +59,7 @@ const unlockAll = new URLSearchParams(window.location.search).get('demo') === 'u
           return (
             <div 
               key={mod.id} 
-              className={`p-6 rounded-xl border transition-all ${
+              className={`p-4 md:p-6 rounded-xl border transition-all ${
                 unlocked 
                   ? 'bg-white border-slate-200 shadow-sm' 
                   : 'bg-slate-100/60 border-slate-250 text-slate-500 select-none'
@@ -88,12 +88,12 @@ const unlockAll = new URLSearchParams(window.location.search).get('demo') === 'u
                 </div>
 
                 {unlocked && (
-                  <div className="text-right shrink-0">
+                  <div className="w-full md:w-auto md:text-right shrink-0">
                     <div className="text-[10px] font-mono font-bold text-slate-500 mb-1.5 uppercase tracking-wide">
                       COMPLETAMENTO MODULO
                     </div>
                     <div className="flex items-center gap-3">
-                      <div className="w-28 bg-[#fff7ed] h-2 rounded-full overflow-hidden border border-[#fed7aa]">
+                      <div className="flex-1 md:flex-none md:w-28 bg-[#fff7ed] h-2 rounded-full overflow-hidden border border-[#fed7aa]">
                         <div 
                           className="bg-[#f97316] h-full transition-all duration-300 rounded-full"
                           style={{ width: `${completionPercent}%` }}
@@ -109,7 +109,7 @@ const unlockAll = new URLSearchParams(window.location.search).get('demo') === 'u
               </div>
 
               {/* Grid of lessons */}
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 md:gap-4 relative">
                 {mod.lessons.map((lesson, lesIdx) => {
                   const lessonCompleted = progress.completedLessons.includes(lesson.id);
                   const isFirstIncomplete = !lessonCompleted && (lesIdx === 0 || progress.completedLessons.includes(mod.lessons[lesIdx - 1]?.id));
@@ -124,7 +124,7 @@ const unlockAll = new URLSearchParams(window.location.search).get('demo') === 'u
                           : lessonCompleted
                             ? 'bg-emerald-50 hover:bg-emerald-100/60 border-emerald-300 cursor-pointer text-emerald-800 hover:shadow-sm' 
                             : isFirstIncomplete 
-                              ? 'bg-[#fff7ed]/80 border-[#f97316] shadow-active-orange cursor-pointer hover:bg-[#fff7ed] scale-[1.01] hover:scale-[1.03] text-[#121c2a] border-b-2' 
+                              ? 'bg-[#fff7ed]/80 border-[#f97316] shadow-active-orange cursor-pointer hover:bg-[#fff7ed] md:scale-[1.01] md:hover:scale-[1.03] text-[#121c2a] border-b-2' 
                               : 'bg-white border-slate-200 cursor-pointer hover:border-[#fed7aa] hover:bg-[#fff7ed]/20 text-[#121c2a]'
                       }`}
                       id={`lesson-card-${lesson.id}`}

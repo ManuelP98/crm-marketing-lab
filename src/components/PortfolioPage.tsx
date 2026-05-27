@@ -25,20 +25,20 @@ export default function PortfolioPage({ progress, setTab }: PortfolioPageProps) 
       {/* Intro section */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">Portfolio Mode</h2>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">Portfolio Mode</h2>
           <p className="text-slate-500 text-sm mt-1">
             Visualizza le schede riepilogative dei casi risolti. Usale per dimostrare le tue competenze reali nei colloqui di lavoro.
           </p>
         </div>
 
-        <div className="bg-indigo-50/60 border border-indigo-250/50 px-4 py-2.5 rounded-xl text-xs text-indigo-900 shrink-0">
+        <div className="w-full md:w-auto bg-indigo-50/60 border border-indigo-250/50 px-4 py-2.5 rounded-xl text-xs text-indigo-900 shrink-0">
           Superati: <strong className="text-indigo-900 font-bold">{completedCases.length} su 5 casi</strong>
         </div>
       </div>
 
       {completedCases.length === 0 ? (
         /* Empty layout */
-        <div className="bg-white rounded-2xl border border-slate-200 p-12 text-center max-w-xl mx-auto space-y-5">
+        <div className="bg-white rounded-2xl border border-slate-200 p-7 md:p-12 text-center max-w-xl mx-auto space-y-5">
           <div className="w-14 h-14 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center mx-auto">
             <Briefcase size={28} />
           </div>
@@ -91,7 +91,7 @@ export default function PortfolioPage({ progress, setTab }: PortfolioPageProps) 
                   </div>
 
                   {/* Body grid content */}
-                  <div className="p-6 grid grid-cols-1 md:grid-cols-12 gap-6">
+                  <div className="p-5 md:p-6 grid grid-cols-1 md:grid-cols-12 gap-6">
                     
                     {/* Scenario briefing */}
                     <div className="md:col-span-5 space-y-4">

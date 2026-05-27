@@ -253,14 +253,14 @@ export default function PracticeLab() {
 
   return (
     <div className="space-y-6" id="crm-practice-lab">
-      <section className="bg-white border border-orange-100 rounded-3xl p-6 shadow-sm overflow-hidden relative">
+      <section className="bg-white border border-orange-100 rounded-xl md:rounded-3xl p-5 md:p-6 shadow-sm overflow-hidden relative">
         <div className="absolute right-0 top-0 w-56 h-56 bg-orange-100/60 rounded-full blur-3xl translate-x-20 -translate-y-24" />
         <div className="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
           <div className="space-y-2">
             <span className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-orange-700 bg-orange-50 border border-orange-100 px-3 py-1 rounded-full">
               <Sparkles size={13} /> Practice Lab
             </span>
-            <h2 className="text-3xl font-extrabold text-[#121c2a] tracking-tight font-display">Allena segmentazione, KPI e lettura dati</h2>
+            <h2 className="text-2xl md:text-3xl font-extrabold text-[#121c2a] tracking-tight font-display">Allena segmentazione, KPI e lettura dati</h2>
             <p className="text-sm text-slate-600 max-w-2xl leading-relaxed">
               Usa filtri visuali e KPI cards per esplorare dati CRM simulati. La vista SQL resta opzionale: serve solo a capire cosa succede “dietro” ai filtri.
             </p>
@@ -309,14 +309,14 @@ export default function PracticeLab() {
       </section>
 
       {analystMode && (
-        <section className="bg-[#121c2a] text-orange-100 rounded-3xl border border-slate-800 p-5 shadow-lg overflow-hidden relative">
+        <section className="bg-[#121c2a] text-orange-100 rounded-xl md:rounded-3xl border border-slate-800 p-4 md:p-5 shadow-lg overflow-hidden relative">
           <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
             <span className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-orange-300">
               <Terminal size={14} /> Data Analyst View
             </span>
             <span className="text-[10px] font-bold bg-emerald-400/10 border border-emerald-400/20 text-emerald-300 px-2 py-1 rounded-full">READ ONLY</span>
           </div>
-          <pre className="whitespace-pre-wrap text-sm leading-relaxed font-mono text-orange-100">{sqlTranspiledQuery}</pre>
+          <pre className="whitespace-pre-wrap break-words text-xs md:text-sm leading-relaxed font-mono text-orange-100">{sqlTranspiledQuery}</pre>
           <Database className="absolute right-6 bottom-5 text-white/5" size={84} />
         </section>
       )}
@@ -335,7 +335,7 @@ export default function PracticeLab() {
       </section>
 
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        <aside className="lg:col-span-4 bg-white border border-orange-100 rounded-3xl p-5 shadow-sm space-y-5">
+        <aside className="lg:col-span-4 bg-white border border-orange-100 rounded-xl md:rounded-3xl p-5 shadow-sm space-y-5">
           <div className="flex items-center gap-2 font-extrabold text-sm text-[#121c2a]">
             <Filter size={17} className="text-[#f97316]" />
             Segment Builder visuale
@@ -405,7 +405,7 @@ export default function PracticeLab() {
           </div>
         </aside>
 
-        <main className="lg:col-span-8 bg-white border border-slate-200 rounded-3xl shadow-sm overflow-hidden">
+        <main className="lg:col-span-8 bg-white border border-slate-200 rounded-xl md:rounded-3xl shadow-sm overflow-hidden">
           <div className="px-5 py-4 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 bg-slate-50/60">
             <div className="flex items-center gap-2">
               <Database size={16} className="text-[#f97316]" />

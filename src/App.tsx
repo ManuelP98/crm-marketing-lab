@@ -10,7 +10,7 @@ import BadgeGrid from './components/BadgeGrid';
 import { UserProgress, Lesson, BusinessCase, PortfolioCase, Badge } from './types';
 import { curriculum } from './data/curriculum';
 import { businessCases } from './data/businessCases';
-import { Trophy, Sparkles, X, Medal, Compass, Map, Database, Briefcase, TrendingUp, Award } from 'lucide-react';
+import { Trophy, Sparkles, X, Medal, Compass, Map, Database, Briefcase, TrendingUp, Award, FlaskConical, Flame } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 const LOCAL_STORAGE_KEY = 'crm_marketing_lab_progress_v2';
@@ -301,6 +301,8 @@ export default function App() {
     { id: 'badges', label: 'Badge', icon: Award },
   ];
 
+  const currentLevel = Math.floor(progress.xp / 150) + 1;
+
   return (
     <div className="flex bg-[#fff7ed]/35 min-h-screen text-[#1f2937] font-sans" id="crm-app-container">
       
@@ -315,8 +317,33 @@ export default function App() {
         onResetProgress={handleResetProgress}
       />
 
+      <div className="flex-1 min-w-0">
+        <header className="md:hidden sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-orange-100 px-4 pt-[calc(env(safe-area-inset-top)+0.75rem)] pb-3 shadow-sm">
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2 min-w-0">
+              <div className="w-9 h-9 bg-[#f97316] rounded-xl flex items-center justify-center shadow-md shadow-orange-500/20 shrink-0">
+                <FlaskConical size={19} className="text-white" />
+              </div>
+              <div className="min-w-0">
+                <h1 className="font-extrabold text-base tracking-tight text-[#121c2a] font-display leading-tight truncate">CRM Lab</h1>
+                <p className="text-[9px] text-[#f97316] font-mono tracking-wider font-bold uppercase">Academy & Arena</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 shrink-0">
+              <div className="bg-orange-50 border border-[#fed7aa] text-[#f97316] rounded-lg px-2.5 py-1 text-[10px] font-mono font-bold">
+                LV {currentLevel}
+              </div>
+              <div className="bg-white border border-slate-200 text-slate-600 rounded-lg px-2.5 py-1 text-[10px] font-mono font-bold flex items-center gap-1">
+                <Flame size={12} className="fill-[#f97316] text-[#f97316]" />
+                {progress.streak} GG
+              </div>
+            </div>
+          </div>
+        </header>
+
       {/* Main Panel Content Area */}
-      <main className="flex-1 p-4 pb-24 md:p-10 overflow-y-auto max-w-7xl mx-auto space-y-6">
+      <main className="w-full p-3 pb-[calc(env(safe-area-inset-bottom)+6rem)] md:p-10 md:pb-10 overflow-y-auto max-w-7xl mx-auto space-y-6">
         
         {/* Render active lesson view or general tabs */}
         {selectedLesson ? (
@@ -372,10 +399,11 @@ export default function App() {
         )}
 
       </main>
+      </div>
 
 
       {/* Mobile bottom navigation */}
-      <nav className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur border-t border-orange-100 shadow-[0_-8px_24px_rgba(15,23,42,0.06)] px-2 py-2 grid grid-cols-6 gap-1">
+      <nav className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur border-t border-orange-100 shadow-[0_-8px_24px_rgba(15,23,42,0.06)] px-2 pt-2 pb-[calc(env(safe-area-inset-bottom)+0.5rem)] grid grid-cols-6 gap-1">
         {mobileMenuItems.map((item) => {
           const Icon = item.icon;
           const active = activeTab === item.id && !selectedLesson;
@@ -386,12 +414,12 @@ export default function App() {
                 setActiveTab(item.id);
                 setSelectedLesson(null);
               }}
-              className={`flex flex-col items-center justify-center gap-1 rounded-xl py-2 text-[10px] font-bold transition-colors ${
+              className={`flex min-w-0 flex-col items-center justify-center gap-1 rounded-xl py-2 text-[9px] font-bold transition-colors ${
                 active ? 'bg-orange-50 text-[#f97316]' : 'text-slate-500 hover:text-slate-800'
               }`}
             >
               <Icon size={17} />
-              <span>{item.label}</span>
+              <span className="truncate w-full text-center">{item.label}</span>
             </button>
           );
         })}

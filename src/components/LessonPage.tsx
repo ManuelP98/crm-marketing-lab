@@ -208,8 +208,8 @@ export default function LessonPage({ lesson, onBack, onCompleteLesson }: LessonP
   const progressPercentage = Math.round(((currentExerciseIndex + (isAnswered ? 1 : 0)) / lesson.exercises.length) * 100);
 
   return (
-    <div className="max-w-5xl mx-auto space-y-6" id={`lesson-workspace-${lesson.id}`}>
-      <div className="flex items-center justify-between">
+    <div className="max-w-5xl mx-auto space-y-5 md:space-y-6" id={`lesson-workspace-${lesson.id}`}>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <button
           onClick={onBack}
           className="flex items-center gap-1.5 text-xs font-mono font-bold text-slate-500 hover:text-[#f97316] transition-all uppercase cursor-pointer"
@@ -218,12 +218,12 @@ export default function LessonPage({ lesson, onBack, onCompleteLesson }: LessonP
           <ArrowLeft size={14} /> Torna Al Percorso
         </button>
 
-        <span className="text-xs text-slate-500 font-mono font-semibold uppercase tracking-wide">
+        <span className="text-[10px] sm:text-xs text-slate-500 font-mono font-semibold uppercase tracking-wide leading-relaxed">
           LEZIONE: <b className="text-[#f97316] font-display">{lesson.title}</b>
         </span>
       </div>
 
-      <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-2">
+      <div className="bg-white p-3.5 md:p-4 rounded-xl border border-slate-200 shadow-sm space-y-2">
         <div className="flex justify-between items-center text-xs font-mono">
           <span className="text-slate-500 font-bold uppercase">PROGRESSO DI LEZIONE</span>
           <span className="text-[#f97316] font-extrabold font-mono">{progressPercentage}%</span>
@@ -239,13 +239,13 @@ export default function LessonPage({ lesson, onBack, onCompleteLesson }: LessonP
       {!lessonFinished ? (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
+            <div className="bg-white p-5 md:p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
               <div className="flex items-center gap-2 text-slate-400 font-extrabold text-xs uppercase tracking-wider font-mono">
                 <Layers size={16} className="text-[#f97316]" />
                 <span>Micro-Teoria</span>
               </div>
               <h3 className="text-lg font-extrabold text-[#121c2a] font-display tracking-tight leading-snug">{lesson.title}</h3>
-              <p className="text-xs text-slate-700 leading-relaxed whitespace-pre-line bg-[#f8f9ff]/70 p-4 rounded-xl border border-[#dee9fc] font-sans font-semibold">
+              <p className="text-xs text-slate-700 leading-relaxed whitespace-pre-line bg-[#f8f9ff]/70 p-3.5 md:p-4 rounded-xl border border-[#dee9fc] font-sans font-semibold">
                 {lesson.theory}
               </p>
             </div>
@@ -261,8 +261,8 @@ export default function LessonPage({ lesson, onBack, onCompleteLesson }: LessonP
             </div>
           </div>
 
-          <div className="lg:col-span-7 bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-6">
-            <div className="flex justify-between items-center font-mono text-xs pb-3 border-b border-slate-100">
+          <div className="lg:col-span-7 bg-white p-5 md:p-6 rounded-xl border border-slate-200 shadow-sm space-y-5 md:space-y-6">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 font-mono text-xs pb-3 border-b border-slate-100">
               <span className="text-slate-500 font-bold uppercase tracking-wider flex items-center gap-1.5 font-mono">
                 <HelpCircle size={15} className="text-[#f97316]" /> Esercizio {currentExerciseIndex + 1} di {lesson.exercises.length}
               </span>
@@ -582,7 +582,7 @@ export default function LessonPage({ lesson, onBack, onCompleteLesson }: LessonP
                   type="button"
                   onClick={handleVerify}
                   disabled={isVerifyDisabled()}
-                  className="bg-[#f97316] hover:bg-[#e0620d] border-b-2 border-orange-700 text-white text-xs font-display font-bold px-6 py-2.5 rounded-md disabled:opacity-40 transition-all cursor-pointer uppercase tracking-widest shadow-sm active:translate-y-[1px]"
+                  className="w-full sm:w-auto bg-[#f97316] hover:bg-[#e0620d] border-b-2 border-orange-700 text-white text-xs font-display font-bold px-6 py-3 sm:py-2.5 rounded-md disabled:opacity-40 transition-all cursor-pointer uppercase tracking-widest shadow-sm active:translate-y-[1px]"
                   id="btn-lesson-verify"
                 >
                   Verifica Risposta
@@ -591,7 +591,7 @@ export default function LessonPage({ lesson, onBack, onCompleteLesson }: LessonP
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="bg-emerald-600 hover:bg-emerald-500 border-b-2 border-emerald-800 text-white text-xs font-display font-bold px-6 py-2.5 rounded-md transition-all flex items-center gap-1.5 cursor-pointer uppercase tracking-widest shadow-sm active:translate-y-[1px]"
+                  className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 border-b-2 border-emerald-800 text-white text-xs font-display font-bold px-6 py-3 sm:py-2.5 rounded-md transition-all flex items-center justify-center gap-1.5 cursor-pointer uppercase tracking-widest shadow-sm active:translate-y-[1px]"
                   id="btn-lesson-continue"
                 >
                   Continua <ChevronRight size={14} />

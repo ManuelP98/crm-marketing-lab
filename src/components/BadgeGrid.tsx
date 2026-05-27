@@ -57,13 +57,13 @@ export default function BadgeGrid({ progress }: BadgeGridProps) {
       {/* Title */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-orange-100 pb-6">
         <div>
-          <h2 className="text-3xl font-extrabold text-[#121c2a] tracking-tight font-display">Progressi & Badge</h2>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-[#121c2a] tracking-tight font-display">Progressi & Badge</h2>
           <p className="text-slate-600 text-sm mt-1">
             Collezione delle certificazioni sbloccate completando le lezioni teorico-pratiche ed i casi della business arena.
           </p>
         </div>
 
-        <div className="bg-[#fff7ed] border border-[#fed7aa] px-4 py-2.5 rounded-xl text-xs text-[#f97316] font-extrabold shrink-0 flex items-center gap-2 shadow-sm uppercase font-mono">
+        <div className="w-full md:w-auto bg-[#fff7ed] border border-[#fed7aa] px-4 py-2.5 rounded-xl text-xs text-[#f97316] font-extrabold shrink-0 flex items-center gap-2 shadow-sm uppercase font-mono">
           <Trophy size={16} className="fill-[#f97316]/10" /> Sbloccati: {unlockedCount} su {BADGES_COLLECTION.length} Badge
         </div>
       </div>
@@ -76,7 +76,7 @@ export default function BadgeGrid({ progress }: BadgeGridProps) {
           return (
             <div 
               key={badge.id}
-              className={`rounded-xl border p-5 flex gap-4 transition-all ${
+              className={`rounded-xl border p-4 md:p-5 flex gap-4 transition-all ${
                 isUnlocked 
                   ? 'border-[#fed7aa] bg-white shadow-[0_8px_16px_rgba(249,115,22,0.06)] hover:shadow-active-orange' 
                   : 'border-slate-200 bg-slate-50 text-slate-500 opacity-60'

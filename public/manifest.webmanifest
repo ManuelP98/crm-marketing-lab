@@ -1,0 +1,19 @@
+{
+  "name": "CRM Marketing Lab",
+  "short_name": "CRM Lab",
+  "description": "Academy e arena pratica per imparare CRM Marketing.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fff7ed",
+  "theme_color": "#f97316",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icons/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

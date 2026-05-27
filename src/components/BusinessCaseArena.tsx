@@ -120,7 +120,7 @@ export default function BusinessCaseArena({
             className="space-y-6"
           >
             <div>
-              <h2 className="text-3xl font-extrabold text-[#121c2a] tracking-tight font-display">Business Case Arena</h2>
+              <h2 className="text-2xl md:text-3xl font-extrabold text-[#121c2a] tracking-tight font-display">Business Case Arena</h2>
               <p className="text-slate-500 text-sm mt-1">
                 Sfide professionali avanzate. Risolvi i problemi esposti dai direttori analizzando dati ed estraendo raccomandazioni.
               </p>
@@ -134,7 +134,7 @@ export default function BusinessCaseArena({
                 return (
                   <div
                     key={bCase.id}
-                    className={`bg-white rounded-xl border p-5 flex flex-col justify-between h-[280px] shadow-sm relative overflow-hidden transition-all ${
+                    className={`bg-white rounded-xl border p-5 flex flex-col justify-between min-h-[260px] md:h-[280px] shadow-sm relative overflow-hidden transition-all ${
                       completed 
                         ? 'border-[#00b251]/30 bg-[#00b251]/5 text-[#006e2f]' 
                         : unlocked 
@@ -218,7 +218,7 @@ export default function BusinessCaseArena({
             id={`solver-case-${selectedCase.id}`}
           >
             {/* Header controls inside case */}
-            <div className="flex justify-between items-center border-b border-slate-205 pb-4">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 border-b border-slate-205 pb-4">
               <button
                 onClick={() => { setSelectedCase(null); setShowResult(false); }}
                 className="flex items-center gap-1.5 text-xs font-sans font-bold text-slate-500 hover:text-[#f97316] transition-all uppercase cursor-pointer"
@@ -226,7 +226,7 @@ export default function BusinessCaseArena({
                 ← Esci e Torna All'Arena
               </button>
 
-              <span className="text-xs text-[#f97316] font-mono font-bold uppercase tracking-wider">
+              <span className="text-[10px] sm:text-xs text-[#f97316] font-mono font-bold uppercase tracking-wider leading-relaxed">
                 {selectedCase.title}
               </span>
             </div>
@@ -236,7 +236,7 @@ export default function BusinessCaseArena({
               
               {/* LEFT COLUMN: SCENARIO + DATA EXPLORER ACCORDION */}
               <div className="lg:col-span-6 space-y-5">
-                <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
+                <div className="bg-white p-5 md:p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
                   <div className="flex items-center gap-2 font-bold text-xs text-slate-700 uppercase font-mono tracking-wider border-b border-slate-100 pb-2">
                     <ClipboardList className="text-[#f97316]" size={16} />
                     <span>Scenario del Problema</span>
@@ -270,7 +270,7 @@ export default function BusinessCaseArena({
                   </p>
 
                   {/* Tabs mini inside helper */}
-                  <div className="flex gap-2.5 border-b border-slate-100 py-1">
+                  <div className="flex gap-2.5 border-b border-slate-100 py-1 overflow-x-auto">
                     {[
                       { id: 'customers', label: 'Customers' },
                       { id: 'leads', label: 'Leads' },
@@ -400,7 +400,7 @@ export default function BusinessCaseArena({
               </div>
 
               {/* RIGHT COLUMN: INTERACTIVE FORM FOR SUBMISSION */}
-              <div className="lg:col-span-6 bg-slate-900/40 p-6 rounded-2xl border border-slate-800 shadow-md space-y-6">
+              <div className="lg:col-span-6 bg-slate-900/40 p-5 md:p-6 rounded-2xl border border-slate-800 shadow-md space-y-6">
                 <div>
                   <span className="text-[9px] text-slate-500 font-mono font-bold uppercase tracking-wider block mb-1">
                     OBIETTIVO ANALISTA (MQL/SQL TARGET)
@@ -498,7 +498,7 @@ export default function BusinessCaseArena({
                 )}
 
                 {/* Submission bottom actions controls */}
-                <div className="flex justify-between items-center pt-3 border-t border-slate-100">
+                <div className="flex flex-col-reverse sm:flex-row sm:justify-between sm:items-center gap-3 pt-3 border-t border-slate-100">
                   <button
                     onClick={() => { setSelectedCase(null); setShowResult(false); }}
                     className="text-slate-500 hover:text-[#f97316] text-xs font-sans font-bold uppercase transition-colors cursor-pointer"
@@ -510,14 +510,14 @@ export default function BusinessCaseArena({
                     <button
                       disabled={!selectedOptionId || userReasoning.trim().length === 0}
                       onClick={handleVerifyCaseAnswer}
-                      className="bg-[#f97316] text-white hover:bg-[#e0620d] border-b-2 border-orange-700 text-xs font-sans font-bold px-5 py-2.5 rounded-lg disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer text-center shadow-sm active:translate-y-[1px] transition-all uppercase tracking-wide"
+                      className="w-full sm:w-auto bg-[#f97316] text-white hover:bg-[#e0620d] border-b-2 border-orange-700 text-xs font-sans font-bold px-5 py-3 sm:py-2.5 rounded-lg disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer text-center shadow-sm active:translate-y-[1px] transition-all uppercase tracking-wide"
                     >
                       Sottoponi Analisi alla Direzione
                     </button>
                   ) : (
                     <button
                       onClick={() => { setSelectedCase(null); setShowResult(false); }}
-                      className="bg-[#00b251] text-white hover:bg-[#009641] border-b-2 border-emerald-800 text-xs font-sans font-bold px-6 py-2.5 rounded-lg block cursor-pointer transition-colors shadow-sm uppercase tracking-wide"
+                      className="w-full sm:w-auto bg-[#00b251] text-white hover:bg-[#009641] border-b-2 border-emerald-800 text-xs font-sans font-bold px-6 py-3 sm:py-2.5 rounded-lg block cursor-pointer transition-colors shadow-sm uppercase tracking-wide"
                     >
                       Torna all'Arena
                     </button>

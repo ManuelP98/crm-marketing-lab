@@ -69,16 +69,16 @@ export default function Dashboard({ progress, onNavigateToLesson, onNavigateToBu
   };
 
   const unlockedBadgesCount = progress.unlockedBadges.length;  return (
-    <div className="space-y-8" id="crm-dashboard">
+    <div className="space-y-6 md:space-y-8" id="crm-dashboard">
       {/* Header and Welcome */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-orange-100 pb-6">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-orange-100 pb-5 md:pb-6">
         <div>
-          <h2 className="text-3xl font-extrabold text-[#121c2a] tracking-tight font-display">CRM Marketing Lab</h2>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-[#121c2a] tracking-tight font-display">CRM Marketing Lab</h2>
           <p className="text-slate-600 text-sm mt-1">
             Impara il Customer Relationship Marketing in modo pratico, mirato e guidato da dati reali.
           </p>
         </div>
-        <div className="bg-[#fff7ed] border border-[#fed7aa] px-4 py-2.5 rounded-xl flex items-center gap-3 shadow-active-orange">
+        <div className="w-full md:w-auto bg-[#fff7ed] border border-[#fed7aa] px-4 py-2.5 rounded-xl flex items-center gap-3 shadow-active-orange">
           <Sparkles className="text-[#f97316] shrink-0 animate-pulse" size={20} />
           <div className="text-sm font-semibold text-orange-950">
             Dedicato a futuri <strong className="text-[#f97316] font-bold">CRM Specialist & Analysts</strong>
@@ -141,12 +141,12 @@ export default function Dashboard({ progress, onNavigateToLesson, onNavigateToBu
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-7">
         
         {/* Left Column: Recommended Lesson Card, Skills */}
-        <div className="lg:col-span-7 space-y-6">
+        <div className="lg:col-span-7 space-y-5 md:space-y-6">
           
           {/* Prossima Lezione consigliata */}
           {recommendedLesson && recommendedModule && (
-            <div className="bg-white border border-[#fed7aa] p-6 rounded-xl shadow-active-orange relative overflow-hidden flex flex-col justify-between transition-all hover:-translate-y-0.5">
-              <div className="mr-20 z-10">
+            <div className="bg-white border border-[#fed7aa] p-5 md:p-6 rounded-xl shadow-active-orange relative overflow-hidden flex flex-col justify-between transition-all hover:-translate-y-0.5">
+              <div className="md:mr-20 z-10">
                 <span className="bg-orange-55 bg-orange-100 text-[#f97316] border border-[#fed7aa] font-mono uppercase text-[10px] font-bold px-3 py-1 rounded-full">
                   Prossima Lezione Consigliata
                 </span>
@@ -157,11 +157,11 @@ export default function Dashboard({ progress, onNavigateToLesson, onNavigateToBu
                 </p>
               </div>
 
-              <div className="pt-4 mt-4 border-t border-slate-100 flex justify-between items-center z-10">
+              <div className="pt-4 mt-4 border-t border-slate-100 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 z-10">
                 <span className="text-xs text-[#f97316] font-mono font-bold">+ {recommendedLesson.xpReward} XP</span>
                 <button
                   onClick={() => onNavigateToLesson(recommendedLesson!.id)}
-                  className="bg-[#f97316] hover:bg-[#e0620d] border-b-2 border-[#b84c00] text-white text-xs font-bold font-display px-5 py-2.5 rounded-md transition-all active:translate-y-[1px] cursor-pointer tracking-wider uppercase shadow-sm"
+                  className="w-full sm:w-auto bg-[#f97316] hover:bg-[#e0620d] border-b-2 border-[#b84c00] text-white text-xs font-bold font-display px-5 py-2.5 rounded-md transition-all active:translate-y-[1px] cursor-pointer tracking-wider uppercase shadow-sm"
                   id="btn-dash-start-lesson"
                 >
                   Inizia ora →
@@ -169,12 +169,12 @@ export default function Dashboard({ progress, onNavigateToLesson, onNavigateToBu
               </div>
               
               {/* Abs decoration icon */}
-              <BookOpen className="absolute right-6 top-6 text-orange-200/20" size={64} />
+              <BookOpen className="hidden sm:block absolute right-6 top-6 text-orange-200/20" size={64} />
             </div>
           )}
 
           {/* Skill piu deboli ed aree di miglioramento */}
-          <div className="bg-white p-6 rounded-xl border border-slate-200/80 shadow-sm space-y-4">
+          <div className="bg-white p-5 md:p-6 rounded-xl border border-slate-200/80 shadow-sm space-y-4">
             <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider font-mono">
               Aree di Miglioramento & Skill Focus
             </h4>
@@ -182,7 +182,7 @@ export default function Dashboard({ progress, onNavigateToLesson, onNavigateToBu
             <div className="space-y-3">
               {progress.weakestSkills.length > 0 ? (
                 progress.weakestSkills.map((skill, idx) => (
-                  <div key={idx} className="flex justify-between items-center p-3.5 rounded-xl bg-[#fff7ed] border border-[#fed7aa] text-orange-950">
+                  <div key={idx} className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 p-3.5 rounded-xl bg-[#fff7ed] border border-[#fed7aa] text-orange-950">
                     <div className="flex items-center gap-2.5">
                       <AlertCircle className="text-[#f97316] shrink-0" size={16} />
                       <span className="text-slate-800 text-xs font-bold">{skill}</span>
@@ -223,7 +223,7 @@ export default function Dashboard({ progress, onNavigateToLesson, onNavigateToBu
 
         {/* Right Column: Business Case Arena Highlights */}
         <div className="lg:col-span-5 space-y-6">
-          <div className="bg-white p-6 rounded-xl border border-slate-200/80 shadow-sm space-y-4">
+          <div className="bg-white p-5 md:p-6 rounded-xl border border-slate-200/80 shadow-sm space-y-4">
             <div className="flex justify-between items-center">
               <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider font-mono">
                 Business Case Arena
@@ -248,7 +248,7 @@ export default function Dashboard({ progress, onNavigateToLesson, onNavigateToBu
                 return (
                   <div 
                     key={bCase.id} 
-                    className={`p-3.5 rounded-xl border flex items-center justify-between transition-all ${
+                    className={`p-3.5 rounded-xl border flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 transition-all ${
                       completed 
                         ? 'bg-emerald-50 border-emerald-200 text-emerald-800' 
                         : unlocked 
@@ -305,7 +305,7 @@ export default function Dashboard({ progress, onNavigateToLesson, onNavigateToBu
           </div>
 
           {/* Badges Preview panel */}
-          <div className="bg-white p-6 rounded-xl border border-slate-200/80 shadow-sm space-y-4">
+          <div className="bg-white p-5 md:p-6 rounded-xl border border-slate-200/80 shadow-sm space-y-4">
             <div className="flex justify-between items-center">
               <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider font-mono">
                 I Tuoi Badge Recenti
