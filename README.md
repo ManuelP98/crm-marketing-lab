@@ -107,7 +107,7 @@ src/
 - La progressione è salvata nel browser; per resettarla usa il pulsante “Reset Progressi”.
 - Non è richiesta nessuna chiave Gemini o API esterna.
 
-## Prossimi step consigliati
+## Prossimi step
 
 1. Aggiungere più business case con difficoltà progressiva.
 2. Aggiungere una modalità “Missione finale” alla fine di ogni modulo.
